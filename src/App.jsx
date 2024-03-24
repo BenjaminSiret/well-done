@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createClient } from "@supabase/supabase-js";
 import Footer from "@/components/Footer";
 import TaskForm from "./components/TaskForm";
 import TaskCard from "./components/TaskCard";
@@ -6,31 +7,39 @@ import { ShaderGradientCanvas, ShaderGradient } from "shadergradient";
 import * as reactSpring from "@react-spring/three";
 import * as drei from "@react-three/drei";
 import * as fiber from "@react-three/fiber";
-import { animate } from "framer-motion";
+
+const supabaseURL = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+const supabase = createClient(
+  supabaseURL,
+  supabaseAnonKey
+);
 
 export default function App() {
-  const [tasks, setTasks] = useState(() => {
-    const savedTasks = localStorage.getItem("tasks");
-    if (savedTasks) {
-      return JSON.parse(savedTasks);
-    } else {
-      return [];
-    }
-  });
-
+  const [tasks, setTasks] = useState([]);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
+    getTasks();
+  }, []);
 
-  const newTaskHandler = (data) => {
-    setTasks((prevTasks) => {
-      return [...prevTasks, data];
-    });
+  async function getTasks() {
+    const { data } = await supabase.from("tasks").select();
+    setTasks(data);
+  }
+
+  const newTaskHandler = async (taskData) => {
+    const { data, error } = await supabase.from("tasks").insert([taskData]).select();
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    setTasks((prevTasks) => [...prevTasks, data[0]]);
 
     setIsFormSubmitted(true);
-
     setTimeout(() => {
       setIsFormSubmitted(false);
     }, 1500);
@@ -66,14 +75,7 @@ export default function App() {
           </h1>
           <h2 className="text-center text-3xl">Start tracking your achievements today</h2>
           <TaskForm newTaskHandler={newTaskHandler} />
-          {/* {tasks &&
-            tasks.map((task, index) => {
-              return (
-                <div key={index} className="flex justify-center gap-5">
-                  <TaskCard task={task} />
-                </div>
-              );
-            })} */}
+          <ul>{tasks && tasks.map((task) => <li key={task.id}>{task.title}</li>)}</ul>
         </main>
         <Footer />
       </div>
