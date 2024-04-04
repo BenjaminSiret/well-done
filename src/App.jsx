@@ -11,10 +11,7 @@ import * as fiber from "@react-three/fiber";
 const supabaseURL = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-const supabase = createClient(
-  supabaseURL,
-  supabaseAnonKey
-);
+const supabase = createClient(supabaseURL, supabaseAnonKey);
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
@@ -75,7 +72,6 @@ export default function App() {
           </h1>
           <h2 className="text-center text-3xl">Start tracking your achievements today</h2>
           <TaskForm newTaskHandler={newTaskHandler} />
-          <ul>{tasks && tasks.map((task) => <li key={task.id}>{task.title}</li>)}</ul>
         </main>
         <Footer />
       </div>
