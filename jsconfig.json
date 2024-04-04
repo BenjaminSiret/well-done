@@ -5,7 +5,8 @@
     "paths": {
       "@/*": [
         "./src/*",
-        "./src/components/*" // Add the correct path to the Form.jsx file
+        "./src/components/*" ,
+        "./src/utils/*"
       ]
     }
     // ...
