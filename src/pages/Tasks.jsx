@@ -1,21 +1,17 @@
 import { useEffect } from "react";
+import { useTasks} from "@/utils/TasksContext";
 
-export default function Tasks() {
-  // useEffect(() => {
-  //   getTasks();
-  // }, []);
-
-  // async function getTasks() {
-  //   const { data } = await supabase.from("tasks").select();
-  //   setTasks(data);
-  // }
+export default function Tasks () {
+  const { state, dispatch } = useTasks();
+  const { tasks, isLoading } = state;
 
   return (
     <>
+      {isLoading && <div>Loading...</div>}
       <ul>
-        <li>task1</li>
-        <li>task2</li>
-        <li>task3</li>
+        {tasks.map((task) => (
+          <li key={task.id}>{task.title}</li>
+        ))}
       </ul>
     </>
   );
