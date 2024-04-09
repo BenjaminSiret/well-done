@@ -4,19 +4,12 @@ import supabase from "@/utils/supabaseClient";
 import TaskForm from "@/components/TaskForm";
 
 export default function Home() {
-  const { state, dispatch } = useTasks();
+  const { state, addTask } = useTasks();
   const { tasks, isLoading } = state;
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const newTaskHandler = async (taskData) => {
-    const { data, error } = await supabase.from("tasks").insert([taskData]).select();
-
-    if (error) {
-      console.error(error);
-      return;
-    }
-
-    dispatch({ type: "ADD_TASKS", payload: [...tasks, data[0]] });
+    await addTask(taskData);
 
     setIsFormSubmitted(true);
     setTimeout(() => {
