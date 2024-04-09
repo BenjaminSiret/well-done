@@ -1,14 +1,18 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-} from "@/components/ui/form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+
+const schema = yup
+  .object({
+    title: yup.string().required(),
+    description: yup.string().required(),
+  })
+  .required();
 
 export default function TaskForm({ newTaskHandler, className }) {
   const form = useForm({
@@ -16,6 +20,7 @@ export default function TaskForm({ newTaskHandler, className }) {
       title: "",
       description: "",
     },
+    resolver: yupResolver(schema),
   });
 
   const onSubmit = (data) => {
