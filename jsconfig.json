@@ -6,7 +6,8 @@
       "@/*": [
         "./src/*",
         "./src/components/*" ,
-        "./src/utils/*"
+        "./src/utils/*",
+        "./src/contexts/*",
       ]
     }
     // ...
