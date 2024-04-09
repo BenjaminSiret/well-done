@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTasks } from "@/utils/TasksContext";
-import supabase from "@/utils/supabaseClient";
+import { Link } from "react-router-dom";
 import TaskForm from "@/components/TaskForm";
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       <h1
-        className={`text-transparent text-6xl font-extrabold text-center gradient-text ${
+        className={`mt-10 text-transparent text-6xl font-extrabold text-center gradient-text ${
           isFormSubmitted ? "animate-gradient" : ""
         }`}
       >
@@ -30,9 +30,10 @@ export default function Home() {
       <h2 className="text-center text-3xl">Start tracking your achievements today</h2>
       {isLoading && <div>Loading...</div>}
       {tasks.length > 0 && (
-        <div>You have {tasks.length} milestones reached! Continue on your path of success!</div>
+        <div className="text-center p-2">You have {tasks.length} milestones reached! Continue on your path of success!</div>
       )}
       <TaskForm newTaskHandler={newTaskHandler} />
+      <Link to="/tasks">TASKS</Link>
     </>
   );
 }

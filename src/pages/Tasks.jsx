@@ -1,8 +1,8 @@
-import { useEffect } from "react";
-import { useTasks} from "@/utils/TasksContext";
+import { useTasks } from "@/utils/TasksContext";
+import { Link } from "react-router-dom";
 
-export default function Tasks () {
-  const { state, dispatch } = useTasks();
+export default function Tasks() {
+  const { state } = useTasks();
   const { tasks, isLoading } = state;
 
   return (
@@ -13,6 +13,7 @@ export default function Tasks () {
           <li key={task.id}>{task.title}</li>
         ))}
       </ul>
+      <Link to="/">HOME</Link>
     </>
   );
 }

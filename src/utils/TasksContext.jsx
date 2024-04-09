@@ -45,7 +45,7 @@ const TasksProvider = ({ children }) => {
 
   const addTask = async (taskData) => {
     dispatch({ type: "ADD_TASK_START" });
-    const { data, error } = await supabase.from("tasks").insert([taskData]).select();
+    const { data, error } = await supabase.from("tasks").insert([taskData]).select()
 
     if (error) {
       dispatch({ type: "ADD_TASK_FAIL", payload: error.message });
