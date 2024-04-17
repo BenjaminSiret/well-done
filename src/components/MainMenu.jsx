@@ -7,14 +7,16 @@ import { Link } from "react-router-dom";
 
 export default function MainMenu () {
   const isDesktop = useMediaQuery("(min-width: 768px)");
+
   return isDesktop ? <div>Desktop</div> :
-    <div>
+    <div className="p-1">
       <Sheet>
         <SheetTrigger>
-          <HamburgerMenuIcon/>
+          <HamburgerMenuIcon className="w-5 h-5"/>
         </SheetTrigger>
-        <SheetContent>
-          <Link to="/">Home</Link>
+        <SheetContent className="flex flex-col">
+          <Link to="/"><SheetTrigger>Home</SheetTrigger></Link>
+          <Link to="/tasks"><SheetTrigger>Tasks</SheetTrigger></Link>
         </SheetContent>
       </Sheet>
     </div>;

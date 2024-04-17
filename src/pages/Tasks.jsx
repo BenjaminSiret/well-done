@@ -1,5 +1,6 @@
 import { useTasks } from "@/contexts/TasksContext";
 import { Link } from "react-router-dom";
+import TaskCard from "@/components/TaskCard";
 
 export default function Tasks() {
   const { state } = useTasks();
@@ -8,9 +9,11 @@ export default function Tasks() {
   return (
     <>
       {isLoading && <div>Loading...</div>}
-      <ul>
+      <ul className="flex flex-col gap-2">
         {tasks.map((task) => (
-          <li key={task.id}>{task.title}</li>
+          <li key={task.id}>
+            <TaskCard task={task} />
+          </li>
         ))}
       </ul>
       <Link to="/">HOME</Link>
