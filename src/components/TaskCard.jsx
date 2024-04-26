@@ -1,12 +1,26 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { memo } from "react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
-export default function TaskCard({task}) {
+const TaskCard = memo(function TaskCard({ task }) {
   return (
     <Card>
       <CardHeader>
         <CardTitle>{task.title}</CardTitle>
+        <CardDescription>{task.description}</CardDescription>
       </CardHeader>
-      <CardContent>{task.description}</CardContent>
+      {/* <CardFooter className="flex justify-end">
+        <Button variant="secondary">Details</Button>
+      </CardFooter> */}
     </Card>
   );
-}
+});
+
+export default TaskCard;
