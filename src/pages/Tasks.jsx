@@ -2,14 +2,17 @@ import { useTasks } from "@/contexts/TasksContext";
 import { Link } from "react-router-dom";
 import TaskCard from "@/components/TaskCard";
 
-export default function Tasks() {
+const Tasks = () => {
   const { state } = useTasks();
   const { tasks, isLoading } = state;
 
   return (
     <>
       {isLoading && <div>Loading...</div>}
-      <ul className="flex flex-col gap-2">
+      <h2 className="mt-10 text-center text-5xl font-bold text-transparent gradient-text">
+        Wall of Success
+      </h2>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-7">
         {tasks.map((task) => (
           <li key={task.id}>
             <TaskCard task={task} />
@@ -19,4 +22,6 @@ export default function Tasks() {
       <Link to="/">HOME</Link>
     </>
   );
-}
+};
+
+export default Tasks;

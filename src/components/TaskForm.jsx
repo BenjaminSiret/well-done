@@ -14,7 +14,7 @@ const schema = yup
   })
   .required();
 
-export default function TaskForm({ newTaskHandler, className }) {
+const TaskForm = ({ newTaskHandler, className }) => {
   const form = useForm({
     defaultValues: {
       title: "",
@@ -62,4 +62,6 @@ export default function TaskForm({ newTaskHandler, className }) {
       </form>
     </Form>
   );
-}
+};
+
+export default TaskForm;
