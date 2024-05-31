@@ -2,16 +2,15 @@ import { useState } from "react";
 import { useTasks } from "@/contexts/TasksContext";
 import { Link } from "react-router-dom";
 import TaskForm from "@/components/TaskForm";
+import { Button } from "@/components/ui/button";
 import { pluralize } from "@/lib/utils";
 
 const Home = () => {
-  const { state, addTask } = useTasks();
+  const { state } = useTasks();
   const { tasks, isLoading } = state;
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-  const newTaskHandler = async (taskData) => {
-    await addTask(taskData);
-
+  const handleFormSubmit = async () => {
     setIsFormSubmitted(true);
     setTimeout(() => {
       setIsFormSubmitted(false);
@@ -27,17 +26,21 @@ const Home = () => {
       >
         Well done!
       </h1>
-
       <h2 className="text-center text-3xl">Start tracking your achievements today</h2>
-      {isLoading && <div>Loading...</div>}
-      {tasks.length > 0 && (
-        <div className="text-center p-2">
-          You have {tasks.length} {pluralize(tasks.length, "milestone", "milestones")} reached!
-          Continue on your path of success!
-        </div>
+      {isLoading ? (
+        <div className="text-center p-2 min-h-16">Loading...</div>
+      ) : (
+        tasks.length > 0 && (
+          <div className="text-center p-2">
+            You have {tasks.length} {pluralize(tasks.length, "milestone", "milestones")} reached!
+            Continue on your path of success!
+          </div>
+        )
       )}
-      <TaskForm newTaskHandler={newTaskHandler} />
-      <Link to="/tasks">TASKS</Link>
+      <TaskForm newTaskHandler={handleFormSubmit} />
+      <Button variant="link">
+        <Link to="/tasks">TASKS</Link>
+      </Button>
     </>
   );
 };

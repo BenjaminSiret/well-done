@@ -1,13 +1,5 @@
 import { memo } from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardFooter,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 const TaskCard = memo(function TaskCard({ task }) {
   return (
@@ -16,9 +8,6 @@ const TaskCard = memo(function TaskCard({ task }) {
         <CardTitle>{task.title}</CardTitle>
         <CardDescription>{task.description}</CardDescription>
       </CardHeader>
-      {/* <CardFooter className="flex justify-end">
-        <Button variant="secondary">Details</Button>
-      </CardFooter> */}
     </Card>
   );
 });
