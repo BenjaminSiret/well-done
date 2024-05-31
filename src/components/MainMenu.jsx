@@ -11,7 +11,7 @@ const MainMenu = () => {
   return isDesktop ? (
     <div>Desktop</div>
   ) : (
-    <div className="p-1">
+    <div className="p-1 sticky top-0">
       <Sheet>
         <SheetTrigger>
           <HamburgerMenuIcon className="w-5 h-5" />
