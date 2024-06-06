@@ -10,7 +10,7 @@ const Home = () => {
   const { tasks, isLoading } = state;
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-  const handleFormSubmit = async () => {
+  const handleFormAnimation = async () => {
     setIsFormSubmitted(true);
     setTimeout(() => {
       setIsFormSubmitted(false);
@@ -37,7 +37,7 @@ const Home = () => {
           </div>
         )
       )}
-      <TaskForm newTaskHandler={handleFormSubmit} />
+      <TaskForm newTaskAnimationHandler={handleFormAnimation} />
       <Button variant="link">
         <Link to="/tasks">TASKS</Link>
       </Button>
