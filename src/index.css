@@ -132,13 +132,14 @@
 .gradient-text {
   background: linear-gradient(
     to right,
-    #1f0263,
-    #006fb4a7,
-    #c639b878,
-    #1f0263,
-    #006fb4a7,
-    #c639b878
+    #2b0a9b,
+    #0480cba7,
+    #d956d078,
+    #2b0a9b,
+    #0480cba7,
+    #d956d078
   );
+
   background-clip: text;
   background-size: 300%;
 }
