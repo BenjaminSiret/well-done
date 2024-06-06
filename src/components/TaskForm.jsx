@@ -15,7 +15,7 @@ const schema = yup
   })
   .required();
 
-const TaskForm = ({ className }) => {
+const TaskForm = ({ className, newTaskAnimationHandler }) => {
   const form = useForm({
     defaultValues: {
       title: "",
@@ -27,6 +27,7 @@ const TaskForm = ({ className }) => {
 
   const onSubmit = async (data) => {
     await addTask(data);
+    newTaskAnimationHandler();
     form.reset();
   };
 
