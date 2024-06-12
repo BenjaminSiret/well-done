@@ -17,11 +17,11 @@ const achievementsReducer = (state, action) => {
       return { ...state, isLoading: false, achievements: action.payload };
     case "GET_ACHIEVEMENTS_FAIL":
       return { ...state, isLoading: false, error: action.payload };
-    case "ADD_TASK_START":
+    case "ADD_ACHIEVEMENT_START":
       return { ...state, isLoading: true };
-    case "ADD_TASK_SUCCESS":
+    case "ADD_ACHIEVEMENT_SUCCESS":
       return { ...state, isLoading: false, achievements: [...state.achievements, action.payload] };
-    case "ADD_TASK_FAIL":
+    case "ADD_ACHIEVEMENT_FAIL":
       return { ...state, isLoading: false, error: action.payload };
     default:
       return state;
