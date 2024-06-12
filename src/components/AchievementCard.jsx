@@ -6,7 +6,7 @@ const TaskCard = memo(function TaskCard({ achievement }) {
     <Card>
       <CardHeader>
         <CardTitle>{achievement.title}</CardTitle>
-        <CardDescription>{achievement.description}</CardDescription>
+        <CardDescription>{achievement.summary}</CardDescription>
       </CardHeader>
     </Card>
   );

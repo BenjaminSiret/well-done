@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 const schema = yup
   .object({
     title: yup.string().required(),
-    description: yup.string().required(),
+    summary: yup.string().required(),
   })
   .required();
 
@@ -19,7 +19,7 @@ const AchievementForm = ({ className, newAchievementAnimationHandler }) => {
   const form = useForm({
     defaultValues: {
       title: "",
-      description: "",
+      summary: "",
     },
     resolver: yupResolver(schema),
   });
@@ -50,11 +50,11 @@ const AchievementForm = ({ className, newAchievementAnimationHandler }) => {
         />
         <FormField
           control={form.control}
-          name="description"
+          name="summary"
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input {...field} placeholder="Description" />
+                <Input {...field} placeholder="Summary" />
               </FormControl>
             </FormItem>
           )}
