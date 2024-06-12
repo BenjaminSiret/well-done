@@ -24,8 +24,8 @@ const MainMenu = () => {
           <Link to="/">
             <SheetTrigger>Home</SheetTrigger>
           </Link>
-          <Link to="/tasks">
-            <SheetTrigger>Tasks</SheetTrigger>
+          <Link to="/achievements">
+            <SheetTrigger>Achievements</SheetTrigger>
           </Link>
         </SheetContent>
       </Sheet>

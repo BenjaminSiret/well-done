@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useTasks } from "@/contexts/TasksContext";
+import { useAchievements } from "@/contexts/AchievementsContext";
 import { Link } from "react-router-dom";
-import TaskForm from "@/components/TaskForm";
+import AchievementForm from "@/components/AchievementForm";
 import { Button } from "@/components/ui/button";
 import { pluralize } from "@/lib/utils";
 
 const Home = () => {
-  const { state } = useTasks();
-  const { tasks, isLoading } = state;
+  const { state } = useAchievements();
+  const { achievements, isLoading } = state;
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const handleFormAnimation = async () => {
@@ -30,16 +30,17 @@ const Home = () => {
       {isLoading ? (
         <div className="text-center p-2 min-h-16">Loading...</div>
       ) : (
-        tasks.length > 0 && (
+        achievements.length > 0 && (
           <div className="text-center p-2">
-            You have {tasks.length} {pluralize(tasks.length, "milestone", "milestones")} reached!
-            Continue on your path of success!
+            You have {achievements.length}{" "}
+            {pluralize(achievements.length, "milestone", "milestones")} reached! Continue on your
+            path of success!
           </div>
         )
       )}
-      <TaskForm newTaskAnimationHandler={handleFormAnimation} />
+      <AchievementForm newAchievementAnimationHandler={handleFormAnimation} />
       <Button variant="link">
-        <Link to="/tasks">TASKS</Link>
+        <Link to="/achievements">ACHIEVEMENTS</Link>
       </Button>
     </>
   );
