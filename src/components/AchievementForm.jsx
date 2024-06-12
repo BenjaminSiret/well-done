@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { useTasks } from "@/contexts/TasksContext";
+import { useAchievements } from "@/contexts/AchievementsContext";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
@@ -15,7 +15,7 @@ const schema = yup
   })
   .required();
 
-const TaskForm = ({ className, newTaskAnimationHandler }) => {
+const AchievementForm = ({ className, newAchievementAnimationHandler }) => {
   const form = useForm({
     defaultValues: {
       title: "",
@@ -23,11 +23,11 @@ const TaskForm = ({ className, newTaskAnimationHandler }) => {
     },
     resolver: yupResolver(schema),
   });
-  const { addTask } = useTasks();
+  const { addAchievement } = useAchievements();
 
   const onSubmit = async (data) => {
-    await addTask(data);
-    newTaskAnimationHandler();
+    await addAchievement(data);
+    newAchievementAnimationHandler();
     form.reset();
   };
 
@@ -67,4 +67,4 @@ const TaskForm = ({ className, newTaskAnimationHandler }) => {
   );
 };
 
-export default TaskForm;
+export default AchievementForm;
