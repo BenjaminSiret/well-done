@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { formatDate } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import {
@@ -37,19 +38,19 @@ const AchievementModal = ({ achievement }) => {
           </Card>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
-          <div className="cursor-pointer">
+          <div>
             <div className="flex justify-between">
               <CardHeader>
                 <CardTitle>{achievement.title}</CardTitle>
-                <CardDescription>{achievement.summary}</CardDescription>
               </CardHeader>
-              <div className="p-6 text-muted-foreground">{achievement.created_at}</div>
+              <div className="p-6 text-sm text-muted-foreground">
+                Created on {formatDate(achievement.created_at)}
+              </div>
             </div>
             <CardContent>
               <div>{achievement.details}</div>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <p className="text-muted-foreground">Created April 2023</p>
               <Button variant="outline">Edit</Button>
               <Button onClick={() => setOpen(false)}>Close</Button>
             </CardFooter>
