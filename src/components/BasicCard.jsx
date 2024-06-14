@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
-const TaskCard = memo(function TaskCard({ achievement }) {
+const BasicCard = memo(function BasicCard({ achievement }) {
   return (
     <Card>
       <CardHeader>
@@ -12,4 +12,4 @@ const TaskCard = memo(function TaskCard({ achievement }) {
   );
 });
 
-export default TaskCard;
+export default BasicCard;
