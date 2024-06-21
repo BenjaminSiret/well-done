@@ -31,11 +31,14 @@ const MobileCard = ({ achievement, open, setOpen }) => {
       <DrawerContent>
         <DrawerHeader className="text-left">
           <DrawerTitle>{achievement.title}</DrawerTitle>
-          <DrawerDescription>{achievement.details}</DrawerDescription>
+          <DrawerDescription>
+            {achievement.details ? achievement.details : "No details provided"}
+          </DrawerDescription>
         </DrawerHeader>
-        <DrawerFooter className="pt-2">
+        <DrawerFooter className="pt-2 justify-between">
+          <Button variant="outline">Edit</Button>
           <DrawerClose asChild>
-            <Button variant="outline">Close</Button>
+            <Button>Close</Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>

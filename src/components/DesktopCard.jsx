@@ -31,8 +31,12 @@ const DesktopCard = ({ achievement, open, setOpen, onClickFunction }) => {
               Created on {formatDate(achievement.created_at)}
             </div>
           </div>
-          <CardContent>
-            <div>{achievement.details}</div>
+          <CardContent className="text-sm">
+            {achievement.details ? (
+              <div>{achievement.details}</div>
+            ) : (
+              <div>No details provided</div>
+            )}
           </CardContent>
           <CardFooter className="flex justify-between">
             <Button variant="outline">Edit</Button>
