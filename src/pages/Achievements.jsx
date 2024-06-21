@@ -1,6 +1,6 @@
 import { useAchievements } from "@/contexts/AchievementsContext";
 import { Link } from "react-router-dom";
-import AchievementModal from "@/components/AchievementModal";
+import AchievementCard from "@/components/AchievementCard";
 import { Button } from "@/components/ui/button";
 
 const Achievements = () => {
@@ -17,7 +17,7 @@ const Achievements = () => {
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-7 gap-2">
           {achievements.map((achievement) => (
             <li key={achievement.id}>
-              <AchievementModal achievement={achievement} />
+              <AchievementCard achievement={achievement} />
             </li>
           ))}
         </ul>
