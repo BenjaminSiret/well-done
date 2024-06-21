@@ -22,7 +22,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 
-const AchievementModal = ({ achievement }) => {
+const AchievementCard = ({ achievement }) => {
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
@@ -65,7 +65,12 @@ const AchievementModal = ({ achievement }) => {
       <DrawerTrigger asChild>
         <Card>
           <CardHeader>
-            <CardTitle>{achievement.title}</CardTitle>
+            <div className="flex items-center justify-between">
+              <CardTitle>{achievement.title}</CardTitle>
+              <div className="text-xs text-muted-foreground">
+                {formatDate(achievement.created_at)}
+              </div>
+            </div>
             <CardDescription>{achievement.summary}</CardDescription>
           </CardHeader>
         </Card>
@@ -85,4 +90,4 @@ const AchievementModal = ({ achievement }) => {
   );
 };
 
-export default AchievementModal;
+export default AchievementCard;
