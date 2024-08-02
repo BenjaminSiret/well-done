@@ -1,15 +1,36 @@
-import { memo } from "react";
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { useState } from "react";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import { useAchievements } from "@/contexts/AchievementsContext";
+import DesktopCard from "./DesktopCard";
+import MobileCard from "./MobileCard";
 
-const TaskCard = memo(function TaskCard({ achievement }) {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{achievement.title}</CardTitle>
-        <CardDescription>{achievement.description}</CardDescription>
-      </CardHeader>
-    </Card>
-  );
-});
+const AchievementCard = ({ achievement }) => {
+  const [open, setOpen] = useState(false);
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+  const { updateAchievement } = useAchievements();
 
-export default TaskCard;
+  const handleSave = async (updatedAchievement) => {
+    await updateAchievement(updatedAchievement);
+    setOpen(false);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  if (isDesktop) {
+    return (
+      <DesktopCard
+        achievement={achievement}
+        open={open}
+        setOpen={setOpen}
+        onClickFunction={handleClose}
+        onSave={handleSave}
+      />
+    );
+  }
+
+  return <MobileCard achievement={achievement} open={open} setOpen={setOpen} />;
+};
+
+export default AchievementCard;
