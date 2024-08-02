@@ -1,11 +1,18 @@
 import { useState } from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { useAchievements } from "@/contexts/AchievementsContext";
 import DesktopCard from "./DesktopCard";
 import MobileCard from "./MobileCard";
 
 const AchievementCard = ({ achievement }) => {
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
+  const { updateAchievement } = useAchievements();
+
+  const handleSave = async (updatedAchievement) => {
+    await updateAchievement(updatedAchievement);
+    setOpen(false);
+  };
 
   const handleClose = () => {
     setOpen(false);
@@ -18,6 +25,7 @@ const AchievementCard = ({ achievement }) => {
         open={open}
         setOpen={setOpen}
         onClickFunction={handleClose}
+        onSave={handleSave}
       />
     );
   }
