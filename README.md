@@ -4,10 +4,10 @@
   <img src="public/AppTitle.png" width="25%" />
 </div>
 
----
 
-# About the project
-Well Done helps you keep track of all your accomplishments, from the smallest to the biggest victory.
+
+## About the project
+Well Done helps you keep track of all your accomplishments, from the smallest to the biggest victory.<br/>
 I created this app to practice, improve my skills, and also because I wanted a way to keep track of my achievements. I tend to overlook how far I've come, and this app helps me to recognize and celebrate my successes.
 
 
