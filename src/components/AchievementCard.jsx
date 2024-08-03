@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useMediaQuery } from "@/hooks/use-media-query";
 import { useAchievements } from "@/contexts/AchievementsContext";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import { useState } from "react";
 import DesktopCard from "./DesktopCard";
 import MobileCard from "./MobileCard";
 

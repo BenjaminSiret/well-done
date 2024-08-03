@@ -1,15 +1,15 @@
-import { clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
-import { format } from "date-fns"
+import { clsx } from "clsx";
+import { format } from "date-fns";
+import { twMerge } from "tailwind-merge";
 
-export function cn (...inputs) {
-  return twMerge(clsx(inputs))
+export function cn(...inputs) {
+  return twMerge(clsx(inputs));
 }
 
-export function pluralize (count, singular, plural) {
-  return count === 1 ? singular : plural
+export function pluralize(count, singular, plural) {
+  return count === 1 ? singular : plural;
 }
 
-export function formatDate (timestamp) {
-  return format(new Date(timestamp), "PP")
+export function formatDate(timestamp) {
+  return format(new Date(timestamp), "PP");
 }

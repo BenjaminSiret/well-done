@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "@/contexts/ThemeContext";
+import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
 const ThemeToggle = ({ ...props }) => {
   const { theme, setTheme } = useTheme();
