@@ -26,6 +26,7 @@ const Home = () => {
       >
         Well done!
       </h1>
+      <img className="gradient-text" src="test.png" alt="" />
       <h2 className="text-center text-3xl">Start tracking your achievements today</h2>
       {isLoading ? (
         <div className="text-center p-2 min-h-16">Loading...</div>
