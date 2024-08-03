@@ -1,7 +1,7 @@
-import { useAchievements } from "@/contexts/AchievementsContext";
-import { Link } from "react-router-dom";
 import AchievementCard from "@/components/AchievementCard";
 import { Button } from "@/components/ui/button";
+import { useAchievements } from "@/contexts/AchievementsContext";
+import { Link } from "react-router-dom";
 
 const Achievements = () => {
   const { state } = useAchievements();

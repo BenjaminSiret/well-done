@@ -1,16 +1,16 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import {
   Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
 } from "@/components/ui/card";
-import AchievementForm from "./AchievementForm";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { formatDate } from "@/lib/utils";
+import { useState } from "react";
+import AchievementForm from "./AchievementForm";
 
 const DesktopCard = ({ achievement, open, setOpen, onClickFunction, onSave }) => {
   const [isEditing, setIsEditing] = useState(false);

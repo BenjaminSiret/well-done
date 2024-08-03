@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { useAchievements } from "@/contexts/AchievementsContext";
-import { Link } from "react-router-dom";
 import AchievementForm from "@/components/AchievementForm";
 import { Button } from "@/components/ui/button";
+import { useAchievements } from "@/contexts/AchievementsContext";
 import { pluralize } from "@/lib/utils";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { state } = useAchievements();
