@@ -12,7 +12,13 @@ import { formatDate } from "@/lib/utils";
 import { useState } from "react";
 import AchievementForm from "./AchievementForm";
 
-const DesktopCard = ({ achievement, open, setOpen, onClickFunction, onSave }) => {
+const DesktopCard = ({
+  achievement,
+  open,
+  setOpen,
+  onClickFunction,
+  onSave,
+}) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleSave = (updatedAchievement) => {
@@ -31,7 +37,9 @@ const DesktopCard = ({ achievement, open, setOpen, onClickFunction, onSave }) =>
         </Card>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
-        <div className={`transition-all duration-300 ${isEditing ? "scale-105" : ""}`}>
+        <div
+          className={`transition-all duration-300 ${isEditing ? "scale-105" : ""}`}
+        >
           {isEditing ? (
             <AchievementForm
               initialData={achievement}
