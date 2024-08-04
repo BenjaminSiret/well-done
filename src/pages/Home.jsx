@@ -9,11 +9,27 @@ const Home = () => {
   const { achievements, isLoading } = state;
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-  const handleFormAnimation = async () => {
+  const handleFormAnimation = () => {
     setIsFormSubmitted(true);
     setTimeout(() => {
       setIsFormSubmitted(false);
     }, 1500);
+  };
+
+  const renderAchievementsInfos = () => {
+    if (isLoading) {
+      return <div className="text-center p-2 min-h-16">Loading...</div>;
+    }
+
+    if (achievements.length > 0) {
+      return (
+        <div className="text-center p-2">
+          You have {achievements.length}{" "}
+          {pluralize(achievements.length, "milestone", "milestones")} reached!
+          Continue on your path of success!
+        </div>
+      );
+    }
   };
 
   return (
@@ -26,18 +42,10 @@ const Home = () => {
         Well done!
       </h1>
       <img className="gradient-text" src="test.png" alt="" />
-      <h2 className="text-center text-3xl">Start tracking your achievements today</h2>
-      {isLoading ? (
-        <div className="text-center p-2 min-h-16">Loading...</div>
-      ) : (
-        achievements.length > 0 && (
-          <div className="text-center p-2">
-            You have {achievements.length}{" "}
-            {pluralize(achievements.length, "milestone", "milestones")} reached! Continue on your
-            path of success!
-          </div>
-        )
-      )}
+      <h2 className="text-center text-3xl">
+        Start tracking your achievements today
+      </h2>
+      {renderAchievementsInfos()}
       <AchievementForm newAchievementAnimationHandler={handleFormAnimation} />
       <Button variant="link">
         <Link to="/achievements">ACHIEVEMENTS</Link>
