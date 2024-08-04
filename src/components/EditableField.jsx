@@ -28,9 +28,7 @@ const EditableField = ({ value, name, onChange }) => {
           aria-label="Edit field"
         />
       ) : (
-        <div onClick={handleClick}>
-          {value || <span className="placeholder">Edit</span>}
-        </div>
+        <div onClick={handleClick}>{value || <span className="placeholder">Edit</span>}</div>
       )}
     </div>
   );
