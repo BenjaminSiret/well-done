@@ -1,9 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Footer from "@/components/Footer";
 import { AchievementsProvider } from "@/contexts/AchievementsContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import Home from "@/pages/Home";
 import Achievements from "@/pages/Achievements";
-import Footer from "@/components/Footer";
+import Home from "@/pages/Home";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import MainMenu from "./components/MainMenu";
 
 export default function App() {

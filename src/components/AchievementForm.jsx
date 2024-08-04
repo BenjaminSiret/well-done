@@ -1,13 +1,11 @@
-"use client";
-
-import { useForm } from "react-hook-form";
-import { useAchievements } from "@/contexts/AchievementsContext";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+import { useAchievements } from "@/contexts/AchievementsContext";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
 
 const schema = yup
   .object({

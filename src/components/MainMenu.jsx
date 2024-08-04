@@ -1,7 +1,5 @@
-"use client";
-
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Link } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
@@ -9,12 +7,15 @@ import ThemeToggle from "./ThemeToggle";
 const MainMenu = () => {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
-  return isDesktop ? (
-    <div className="flex">
-      <div>Desktop</div>
-      <ThemeToggle className="ml-auto mt-2 mr-2" />
-    </div>
-  ) : (
+  if (isDesktop)
+    return (
+      <div className="flex">
+        <div>Desktop</div>
+        <ThemeToggle className="ml-auto mt-2 mr-2" />
+      </div>
+    );
+
+  return (
     <div className="flex p-1 sticky top-0">
       <Sheet>
         <SheetTrigger>
