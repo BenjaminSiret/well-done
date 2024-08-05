@@ -6,7 +6,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const MainMenu = () => {
   const isDesktop = useMediaQuery("(min-width: 768px)");
-
+  // TODO: créer le menu desktop
   if (isDesktop)
     return (
       <div className="flex">
