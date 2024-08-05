@@ -4,8 +4,7 @@ import { useAchievements } from "@/contexts/AchievementsContext";
 import { Link } from "react-router-dom";
 
 const Achievements = () => {
-  const { state } = useAchievements();
-  const { achievements, isLoading } = state;
+  const { achievements, isLoading } = useAchievements();
 
   return (
     <div className="flex flex-col items-center gap-8">
