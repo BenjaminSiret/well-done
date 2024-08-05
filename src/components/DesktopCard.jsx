@@ -15,6 +15,7 @@ import AchievementForm from "./AchievementForm";
 const DesktopCard = ({ achievement, open, setOpen, onClickFunction, onSave }) => {
   const [isEditing, setIsEditing] = useState(false);
 
+  // utilisation de useCallback pour éviter de redéfinir la fonction dans le composant enfant
   const handleSave = useCallback(
     (updatedAchievement) => {
       onSave(updatedAchievement);
