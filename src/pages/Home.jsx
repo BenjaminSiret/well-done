@@ -5,8 +5,7 @@ import { pluralize } from "@/lib/utils";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 const Home = () => {
-  const { state } = useAchievements();
-  const { achievements, isLoading } = state;
+  const { achievements, isLoading } = useAchievements();
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const handleFormAnimation = () => {
@@ -24,9 +23,8 @@ const Home = () => {
     if (achievements.length > 0) {
       return (
         <div className="text-center p-2">
-          You have {achievements.length}{" "}
-          {pluralize(achievements.length, "milestone", "milestones")} reached!
-          Continue on your path of success!
+          You have {achievements.length} {pluralize(achievements.length, "milestone", "milestones")}{" "}
+          reached! Continue on your path of success!
         </div>
       );
     }
@@ -42,9 +40,7 @@ const Home = () => {
         Well done!
       </h1>
       <img className="gradient-text" src="test.png" alt="" />
-      <h2 className="text-center text-3xl">
-        Start tracking your achievements today
-      </h2>
+      <h2 className="text-center text-3xl">Start tracking your achievements today</h2>
       {renderAchievementsInfos()}
       <AchievementForm newAchievementAnimationHandler={handleFormAnimation} />
       <Button variant="link">

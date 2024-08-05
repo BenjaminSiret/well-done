@@ -18,7 +18,7 @@ const schema = yup
 const AchievementForm = ({
   className,
   newAchievementAnimationHandler,
-  initialData,
+  initialData, // objet vide par défaut pour éviter les erreurs
   onSave,
   showDetails,
 }) => {
@@ -35,7 +35,7 @@ const AchievementForm = ({
 
   const onSubmit = async (data) => {
     if (onSave) {
-      await onSave(data);
+      await onSave({ ...data, id: initialData.id }); // on s'assure d'avoir l'id en cas d'update
     } else {
       await addAchievement(data);
       newAchievementAnimationHandler();
@@ -81,7 +81,12 @@ const AchievementForm = ({
               <FormItem>
                 {showDetails && <FormLabel>Details</FormLabel>}
                 <FormControl className="min-h-48">
-                  <Textarea {...field} placeholder="Details" className="w-64" />
+                  <Textarea
+                    {...field}
+                    placeholder="Details"
+                    className="w-64"
+                    value={field.value ?? ""}
+                  />
                 </FormControl>
               </FormItem>
             )}
