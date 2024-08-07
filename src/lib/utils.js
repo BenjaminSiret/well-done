@@ -7,6 +7,8 @@ export function cn(...inputs) {
 }
 
 export function pluralize(count, singular, plural) {
+  if (count < 1) return null;
+
   return count === 1 ? singular : plural;
 }
 
