@@ -1,7 +1,5 @@
 import AchievementCard from "@/components/AchievementCard";
-import { Button } from "@/components/ui/button";
 import { useAchievements } from "@/contexts/AchievementsContext";
-import { Link } from "react-router-dom";
 
 const Achievements = () => {
   const { achievements, isLoading } = useAchievements();
@@ -21,9 +19,6 @@ const Achievements = () => {
           ))}
         </ul>
       </div>
-      <Button variant="link">
-        <Link to="/">HOME</Link>
-      </Button>
     </div>
   );
 };
