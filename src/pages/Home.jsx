@@ -1,9 +1,7 @@
 import AchievementForm from "@/components/AchievementForm";
-import { Button } from "@/components/ui/button";
 import { useAchievements } from "@/contexts/AchievementsContext";
 import { pluralize } from "@/lib/utils";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 const Home = () => {
   const { achievements, isLoading } = useAchievements();
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
@@ -43,9 +41,6 @@ const Home = () => {
       <h2 className="text-center text-3xl">Start tracking your achievements today</h2>
       {renderAchievementsInfos()}
       <AchievementForm newAchievementAnimationHandler={handleFormAnimation} />
-      <Button variant="link">
-        <Link to="/achievements">ACHIEVEMENTS</Link>
-      </Button>
     </>
   );
 };
