@@ -1,7 +1,7 @@
 ---
 name: "Feature template"
-about: "about"
-title: "title"
+about: "Use this template for a new feature"
+title: "Add a clear title"
 labels:
 assignees: ''
 
