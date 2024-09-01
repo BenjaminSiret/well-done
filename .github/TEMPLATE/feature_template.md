@@ -1,3 +1,12 @@
+---
+name: "Feature template"
+about: "about"
+title: "title"
+labels:
+assignees: ''
+
+---
+
 # **Issue : title**
 
 ## **Context**
